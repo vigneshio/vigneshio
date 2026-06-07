@@ -1,419 +1,534 @@
-<svg width="900" height="500" viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg">
+<svg width="900" height="600" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
 <defs>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;display=swap');
 
-    .bg { fill: #060d0b; }
-    .bg2 { fill: #0a1510; }
-    .bg3 { fill: #0e1d17; }
+    .scan{animation:scan 6s linear infinite}
+    @keyframes scan{0%{transform:translateY(-80px);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(680px);opacity:0}}
 
-    .border { stroke: #1D9E7530; stroke-width: 0.5; fill: none; }
-    .border-g { stroke: #1D9E75; stroke-width: 0.5; fill: none; }
-    .border-p { stroke: #7F77DD40; stroke-width: 0.5; fill: none; }
+    .world{animation:wfade 1s ease both}
+    @keyframes wfade{from{opacity:0}to{opacity:1}}
 
-    text { font-family: 'JetBrains Mono', monospace; }
-    .name  { font-size: 38px; font-weight: 700; fill: #e8f5f0; letter-spacing: -1px; }
-    .name-accent { font-size: 38px; font-weight: 700; fill: #1D9E75; letter-spacing: -1px; }
-    .role  { font-size: 12px; fill: #5DCAA5; letter-spacing: 2px; }
-    .loc   { font-size: 11px; fill: #1D9E7580; }
-    .label { font-size: 9px;  fill: #1D9E7560; letter-spacing: 1.5px; }
-    .val   { font-size: 14px; font-weight: 700; fill: #9FE1CB; }
-    .val-s { font-size: 11px; fill: #5DCAA5; }
-    .mono  { font-size: 10px; fill: #1D9E75; }
-    .mono2 { font-size: 10px; fill: #5DCAA550; }
-    .kw    { font-size: 10px; fill: #7F77DD; }
-    .str   { font-size: 10px; fill: #1D9E75; }
-    .cert-name { font-size: 10px; fill: #9FE1CB; }
-    .cert-sub  { font-size: 9px;  fill: #1D9E7580; }
-    .tag  { font-size: 9px; fill: #5DCAA5; }
-    .dim  { font-size: 9px; fill: #1D9E7530; }
+    .nslide{animation:nsl 1.1s cubic-bezier(.16,1,.3,1) both;animation-delay:.15s}
+    @keyframes nsl{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:none}}
 
-    /* === ANIMATIONS === */
+    .cur{animation:cur 1s step-end infinite}
+    @keyframes cur{0%,100%{opacity:1}50%{opacity:0}}
 
-    /* Fade in entire SVG */
-    .root { animation: rootfade 0.8s ease both; }
-    @keyframes rootfade { from { opacity: 0; } to { opacity: 1; } }
+    .f1{animation:fu .7s ease both;animation-delay:.3s}
+    .f2{animation:fu .7s ease both;animation-delay:.5s}
+    .f3{animation:fu .7s ease both;animation-delay:.7s}
+    .f4{animation:fu .7s ease both;animation-delay:.9s}
+    .f5{animation:fu .7s ease both;animation-delay:1.1s}
+    .f6{animation:fu .7s ease both;animation-delay:1.3s}
+    .f7{animation:fu .7s ease both;animation-delay:1.5s}
+    .f8{animation:fu .7s ease both;animation-delay:1.7s}
+    .f9{animation:fu .7s ease both;animation-delay:1.9s}
+    @keyframes fu{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 
-    /* Name slide in */
-    .name-group { animation: nameSlide 1s cubic-bezier(0.16,1,0.3,1) both; animation-delay: 0.2s; }
-    @keyframes nameSlide { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: none; } }
+    .pa{animation:pa 9s ease-in-out infinite}
+    .pb{animation:pb 12s ease-in-out infinite;animation-delay:-3s}
+    .pc{animation:pc 7s ease-in-out infinite;animation-delay:-5s}
+    .pd{animation:pd 11s ease-in-out infinite;animation-delay:-1s}
+    .pe{animation:pe 8s ease-in-out infinite;animation-delay:-7s}
+    .pf{animation:pf 14s ease-in-out infinite;animation-delay:-4s}
+    .pg{animation:pg 10s ease-in-out infinite;animation-delay:-2s}
+    .ph{animation:ph 13s ease-in-out infinite;animation-delay:-9s}
+    @keyframes pa{0%,100%{transform:translate(0,0);opacity:.5}50%{transform:translate(12px,-18px);opacity:1}}
+    @keyframes pb{0%,100%{transform:translate(0,0);opacity:.3}50%{transform:translate(-14px,-10px);opacity:.7}}
+    @keyframes pc{0%,100%{transform:translate(0,0);opacity:.6}50%{transform:translate(8px,14px);opacity:.9}}
+    @keyframes pd{0%,100%{transform:translate(0,0);opacity:.2}50%{transform:translate(-8px,-16px);opacity:.6}}
+    @keyframes pe{0%,100%{transform:translate(0,0);opacity:.4}50%{transform:translate(10px,-8px);opacity:.8}}
+    @keyframes pf{0%,100%{transform:translate(0,0);opacity:.25}50%{transform:translate(-12px,10px);opacity:.55}}
+    @keyframes pg{0%,100%{transform:translate(0,0);opacity:.35}50%{transform:translate(14px,-12px);opacity:.65}}
+    @keyframes ph{0%,100%{transform:translate(0,0);opacity:.15}50%{transform:translate(-6px,8px);opacity:.45}}
 
-    /* Cursor blink */
-    .cursor { animation: blink 1s step-end infinite; }
-    @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+    .np{animation:np 3s ease-in-out infinite}
+    .np2{animation:np 3s ease-in-out infinite;animation-delay:-1s}
+    .np3{animation:np 3s ease-in-out infinite;animation-delay:-2s}
+    @keyframes np{0%,100%{r:5;opacity:.5}50%{r:9;opacity:1}}
 
-    /* Ping ring on status dot */
-    .ping-ring { animation: ping 2s ease-out infinite; transform-origin: 38px 42px; }
-    @keyframes ping { 0% { r: 4; opacity: 0.8; } 100% { r: 14; opacity: 0; } }
+    .ef{animation:ef 4s ease-in-out infinite}
+    .ef2{animation:ef 4s ease-in-out infinite;animation-delay:-1.3s}
+    .ef3{animation:ef 4s ease-in-out infinite;animation-delay:-2.6s}
+    @keyframes ef{0%,100%{stroke-opacity:.1}50%{stroke-opacity:.5}}
 
-    /* Staggered section reveals */
-    .s1 { animation: fadeup 0.7s ease both; animation-delay: 0.4s; }
-    .s2 { animation: fadeup 0.7s ease both; animation-delay: 0.6s; }
-    .s3 { animation: fadeup 0.7s ease both; animation-delay: 0.8s; }
-    .s4 { animation: fadeup 0.7s ease both; animation-delay: 1.0s; }
-    .s5 { animation: fadeup 0.7s ease both; animation-delay: 1.2s; }
-    .s6 { animation: fadeup 0.7s ease both; animation-delay: 1.4s; }
-    .s7 { animation: fadeup 0.7s ease both; animation-delay: 1.6s; }
-    .s8 { animation: fadeup 0.7s ease both; animation-delay: 1.8s; }
-    @keyframes fadeup { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+    .ed{stroke-dasharray:4 5;animation:ed 3s linear infinite}
+    @keyframes ed{from{stroke-dashoffset:60}to{stroke-dashoffset:0}}
 
-    /* Animated bar fills */
-    .bar1 { animation: barGrow1 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay: 1s; }
-    .bar2 { animation: barGrow2 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay: 1.15s; }
-    .bar3 { animation: barGrow3 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay: 1.3s; }
-    .bar4 { animation: barGrow4 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay: 1.45s; }
-    .bar5 { animation: barGrow5 1.4s cubic-bezier(0.16,1,0.3,1) both; animation-delay: 1.6s; }
-    @keyframes barGrow1 { from { width: 0; } to { width: 108px; } }
-    @keyframes barGrow2 { from { width: 0; } to { width: 96px; } }
-    @keyframes barGrow3 { from { width: 0; } to { width: 84px; } }
-    @keyframes barGrow4 { from { width: 0; } to { width: 78px; } }
-    @keyframes barGrow5 { from { width: 0; } to { width: 90px; } }
+    .orb{animation:orb 20s linear infinite;transform-origin:720px 130px}
+    @keyframes orb{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+    .orb2{animation:orb2 28s linear infinite reverse;transform-origin:720px 130px}
+    @keyframes orb2{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 
-    /* Scan line sweep */
-    .scanline { animation: scan 4s linear infinite; }
-    @keyframes scan { from { transform: translateY(-500px); } to { transform: translateY(500px); } }
+    .b1{animation:b1 1.8s cubic-bezier(.16,1,.3,1) both;animation-delay:1.0s}
+    .b2{animation:b2 1.8s cubic-bezier(.16,1,.3,1) both;animation-delay:1.2s}
+    .b3{animation:b3 1.8s cubic-bezier(.16,1,.3,1) both;animation-delay:1.4s}
+    .b4{animation:b4 1.8s cubic-bezier(.16,1,.3,1) both;animation-delay:1.6s}
+    .b5{animation:b5 1.8s cubic-bezier(.16,1,.3,1) both;animation-delay:1.8s}
+    .b6{animation:b6 1.8s cubic-bezier(.16,1,.3,1) both;animation-delay:2.0s}
+    @keyframes b1{from{width:0}to{width:128px}}
+    @keyframes b2{from{width:0}to{width:110px}}
+    @keyframes b3{from{width:0}to{width:120px}}
+    @keyframes b4{from{width:0}to{width:124px}}
+    @keyframes b5{from{width:0}to{width:96px}}
+    @keyframes b6{from{width:0}to{width:88px}}
 
-    /* Particle float */
-    .p1  { animation: float1 8s ease-in-out infinite; }
-    .p2  { animation: float2 10s ease-in-out infinite; animation-delay: -2s; }
-    .p3  { animation: float3 12s ease-in-out infinite; animation-delay: -4s; }
-    .p4  { animation: float4 9s  ease-in-out infinite; animation-delay: -1s; }
-    .p5  { animation: float1 11s ease-in-out infinite; animation-delay: -5s; }
-    .p6  { animation: float2 7s  ease-in-out infinite; animation-delay: -3s; }
-    .p7  { animation: float3 13s ease-in-out infinite; animation-delay: -6s; }
-    .p8  { animation: float4 8s  ease-in-out infinite; animation-delay: -7s; }
-    .p9  { animation: float1 14s ease-in-out infinite; animation-delay: -9s; }
-    .p10 { animation: float2 6s  ease-in-out infinite; animation-delay: -8s; }
-    @keyframes float1 { 0%,100%{transform:translate(0,0);opacity:0.3} 50%{transform:translate(8px,-14px);opacity:0.7} }
-    @keyframes float2 { 0%,100%{transform:translate(0,0);opacity:0.2} 50%{transform:translate(-10px,-8px);opacity:0.5} }
-    @keyframes float3 { 0%,100%{transform:translate(0,0);opacity:0.4} 50%{transform:translate(6px,10px);opacity:0.6} }
-    @keyframes float4 { 0%,100%{transform:translate(0,0);opacity:0.15}50%{transform:translate(-6px,-12px);opacity:0.45} }
+    .cd1{animation:cdp .5s cubic-bezier(.34,1.56,.64,1) both;animation-delay:1.1s}
+    .cd2{animation:cdp .5s cubic-bezier(.34,1.56,.64,1) both;animation-delay:1.25s}
+    .cd3{animation:cdp .5s cubic-bezier(.34,1.56,.64,1) both;animation-delay:1.40s}
+    .cd4{animation:cdp .5s cubic-bezier(.34,1.56,.64,1) both;animation-delay:1.55s}
+    .cd5{animation:cdp .5s cubic-bezier(.34,1.56,.64,1) both;animation-delay:1.70s}
+    .cd6{animation:cdp .5s cubic-bezier(.34,1.56,.64,1) both;animation-delay:1.85s}
+    .cd7{animation:cdp .5s cubic-bezier(.34,1.56,.64,1) both;animation-delay:2.00s}
+    .cd8{animation:cdp .5s cubic-bezier(.34,1.56,.64,1) both;animation-delay:2.15s}
+    .cd9{animation:cdp .5s cubic-bezier(.34,1.56,.64,1) both;animation-delay:2.30s}
+    @keyframes cdp{from{r:0;opacity:0}to{opacity:1}}
 
-    /* Typewriter queries */
-    .q1 { animation: typeq1 0.6s steps(1) both; animation-delay: 1.0s; }
-    .q2 { animation: typeq2 0.6s steps(1) both; animation-delay: 1.4s; }
-    .q3 { animation: typeq3 0.6s steps(1) both; animation-delay: 1.8s; }
-    .q4 { animation: typeq4 0.6s steps(1) both; animation-delay: 2.2s; }
-    @keyframes typeq1 { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes typeq2 { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes typeq3 { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes typeq4 { from { opacity: 0; } to { opacity: 1; } }
+    .r1{animation:rsl .6s ease both;animation-delay:1.3s}
+    .r2{animation:rsl .6s ease both;animation-delay:1.55s}
+    .r3{animation:rsl .6s ease both;animation-delay:1.80s}
+    @keyframes rsl{from{opacity:0;transform:translateX(22px)}to{opacity:1;transform:none}}
 
-    /* Score count up feel */
-    .score-num { animation: scorefade 1s ease both; animation-delay: 0.6s; }
-    @keyframes scorefade { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: none; } }
+    .ping{animation:ping 2.2s ease-out infinite}
+    @keyframes ping{0%{r:4;opacity:.9}100%{r:16;opacity:0}}
 
-    /* Cert dots pop */
-    .cd1 { animation: dotpop 0.4s cubic-bezier(0.34,1.56,0.64,1) both; animation-delay: 1.2s; }
-    .cd2 { animation: dotpop 0.4s cubic-bezier(0.34,1.56,0.64,1) both; animation-delay: 1.35s; }
-    .cd3 { animation: dotpop 0.4s cubic-bezier(0.34,1.56,0.64,1) both; animation-delay: 1.5s; }
-    .cd4 { animation: dotpop 0.4s cubic-bezier(0.34,1.56,0.64,1) both; animation-delay: 1.65s; }
-    .cd5 { animation: dotpop 0.4s cubic-bezier(0.34,1.56,0.64,1) both; animation-delay: 1.8s; }
-    .cd6 { animation: dotpop 0.4s cubic-bezier(0.34,1.56,0.64,1) both; animation-delay: 1.95s; }
-    .cd7 { animation: dotpop 0.4s cubic-bezier(0.34,1.56,0.64,1) both; animation-delay: 2.1s; }
-    .cd8 { animation: dotpop 0.4s cubic-bezier(0.34,1.56,0.64,1) both; animation-delay: 2.25s; }
-    .cd9 { animation: dotpop 0.4s cubic-bezier(0.34,1.56,0.64,1) both; animation-delay: 2.4s; }
-    @keyframes dotpop { from { r: 0; opacity: 0; } to { r: 3; opacity: 1; } }
+    .wsh{animation:wsh 4s ease-in-out infinite;animation-delay:2s}
+    @keyframes wsh{0%,100%{opacity:1}50%{opacity:.6}}
 
-    /* Repo rows slide in */
-    .r1 { animation: rowslide 0.5s ease both; animation-delay: 1.4s; }
-    .r2 { animation: rowslide 0.5s ease both; animation-delay: 1.6s; }
-    .r3 { animation: rowslide 0.5s ease both; animation-delay: 1.8s; }
-    @keyframes rowslide { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: none; } }
+    .lb1{animation:lbp 3s ease-in-out infinite}
+    .lb2{animation:lbp 3s ease-in-out infinite;animation-delay:.75s}
+    .lb3{animation:lbp 3s ease-in-out infinite;animation-delay:1.5s}
+    .lb4{animation:lbp 3s ease-in-out infinite;animation-delay:2.25s}
+    @keyframes lbp{0%,100%{stroke-opacity:.35}50%{stroke-opacity:1}}
 
-    /* Link pulse border */
-    .link-rect { animation: linkpulse 3s ease-in-out infinite; }
-    .link-rect:nth-child(2) { animation-delay: 0.5s; }
-    .link-rect:nth-child(3) { animation-delay: 1s; }
-    .link-rect:nth-child(4) { animation-delay: 1.5s; }
-    @keyframes linkpulse { 0%,100%{stroke-opacity:0.3} 50%{stroke-opacity:0.8} }
+    .sg{animation:sg 2.5s ease-in-out infinite}
+    @keyframes sg{0%,100%{opacity:.75}50%{opacity:1}}
 
-    /* Warrior badge shimmer */
-    .warrior-bg { animation: warriorshine 4s ease-in-out infinite; animation-delay: 2s; }
-    @keyframes warriorshine { 0%,100%{fill-opacity:1} 50%{fill-opacity:0.7} }
-
-    /* Grid line draw */
-    .gridline { stroke-dasharray: 4 6; animation: griddraw 2s linear infinite; }
-    @keyframes griddraw { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
+    .tw1{animation:tw .4s steps(1) both;animation-delay:1.0s}
+    .tw2{animation:tw .4s steps(1) both;animation-delay:1.4s}
+    .tw3{animation:tw .4s steps(1) both;animation-delay:1.8s}
+    @keyframes tw{from{opacity:0}to{opacity:1}}
   </style>
 
-  <clipPath id="mainClip">
-    <rect width="900" height="500" rx="16"/>
-  </clipPath>
+  <clipPath id="clip"><rect width="900" height="600" rx="18"/></clipPath>
 
-  <linearGradient id="scanGrad" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0%" stop-color="#1D9E75" stop-opacity="0"/>
-    <stop offset="40%" stop-color="#1D9E75" stop-opacity="0.04"/>
-    <stop offset="60%" stop-color="#1D9E75" stop-opacity="0.04"/>
-    <stop offset="100%" stop-color="#1D9E75" stop-opacity="0"/>
-  </linearGradient>
+  <radialGradient id="blobT" cx="28%" cy="48%" r="55%">
+    <stop offset="0%" stop-color="#3EBCB3" stop-opacity=".09"/>
+    <stop offset="100%" stop-color="#3EBCB3" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="blobP" cx="80%" cy="26%" r="42%">
+    <stop offset="0%" stop-color="#E9468B" stop-opacity=".07"/>
+    <stop offset="100%" stop-color="#E9468B" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="glowT" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#3EBCB3" stop-opacity=".18"/>
+    <stop offset="100%" stop-color="#3EBCB3" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="glowP" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#E9468B" stop-opacity=".15"/>
+    <stop offset="100%" stop-color="#E9468B" stop-opacity="0"/>
+  </radialGradient>
 
-  <linearGradient id="leftFade" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0%" stop-color="#060d0b" stop-opacity="0"/>
-    <stop offset="100%" stop-color="#060d0b" stop-opacity="1"/>
-  </linearGradient>
-
-  <filter id="glow">
-    <feGaussianBlur stdDeviation="2" result="blur"/>
-    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-  </filter>
+  <filter id="blur2"><feGaussianBlur stdDeviation="2"/></filter>
+  <filter id="blur8"><feGaussianBlur stdDeviation="8"/></filter>
 </defs>
 
-<g class="root" clip-path="url(#mainClip)">
+<g clip-path="url(#clip)" class="world">
 
-  <!-- Base background -->
-  <rect width="900" height="500" class="bg"/>
+  <!-- ── BACKGROUND ── -->
+  <rect width="900" height="600" fill="#080b12"/>
+  <rect width="900" height="600" fill="url(#blobT)"/>
+  <rect width="900" height="600" fill="url(#blobP)"/>
 
-  <!-- Subtle grid lines -->
-  <g opacity="0.04">
-    <line x1="0" y1="100" x2="900" y2="100" stroke="#1D9E75" stroke-width="0.5"/>
-    <line x1="0" y1="200" x2="900" y2="200" stroke="#1D9E75" stroke-width="0.5"/>
-    <line x1="0" y1="300" x2="900" y2="300" stroke="#1D9E75" stroke-width="0.5"/>
-    <line x1="0" y1="400" x2="900" y2="400" stroke="#1D9E75" stroke-width="0.5"/>
-    <line x1="200" y1="0" x2="200" y2="500" stroke="#1D9E75" stroke-width="0.5"/>
-    <line x1="450" y1="0" x2="450" y2="500" stroke="#1D9E75" stroke-width="0.5"/>
-    <line x1="700" y1="0" x2="700" y2="500" stroke="#1D9E75" stroke-width="0.5"/>
+  <!-- Grid -->
+  <g opacity=".032" stroke="#3EBCB3" stroke-width=".5">
+    <line x1="0" y1="75"  x2="900" y2="75"/>  <line x1="0" y1="150" x2="900" y2="150"/>
+    <line x1="0" y1="225" x2="900" y2="225"/>  <line x1="0" y1="300" x2="900" y2="300"/>
+    <line x1="0" y1="375" x2="900" y2="375"/>  <line x1="0" y1="450" x2="900" y2="450"/>
+    <line x1="0" y1="525" x2="900" y2="525"/>
+    <line x1="75"  y1="0" x2="75"  y2="600"/>  <line x1="150" y1="0" x2="150" y2="600"/>
+    <line x1="225" y1="0" x2="225" y2="600"/>  <line x1="300" y1="0" x2="300" y2="600"/>
+    <line x1="375" y1="0" x2="375" y2="600"/>  <line x1="450" y1="0" x2="450" y2="600"/>
+    <line x1="525" y1="0" x2="525" y2="600"/>  <line x1="600" y1="0" x2="600" y2="600"/>
+    <line x1="675" y1="0" x2="675" y2="600"/>  <line x1="750" y1="0" x2="750" y2="600"/>
+    <line x1="825" y1="0" x2="825" y2="600"/>
   </g>
 
-  <!-- Scan line sweep -->
-  <rect class="scanline" x="0" y="-60" width="900" height="60" fill="url(#scanGrad)" opacity="0.6"/>
+  <!-- Scan sweep -->
+  <rect class="scan" x="0" y="0" width="900" height="70"
+        fill="none" stroke="#3EBCB3" stroke-width=".4" opacity=".14"/>
 
-  <!-- Floating particles -->
-  <circle class="p1"  cx="60"  cy="80"  r="1.5" fill="#1D9E75" opacity="0.4"/>
-  <circle class="p2"  cx="120" cy="160" r="1"   fill="#7F77DD" opacity="0.3"/>
-  <circle class="p3"  cx="800" cy="60"  r="2"   fill="#1D9E75" opacity="0.35"/>
-  <circle class="p4"  cx="840" cy="200" r="1.5" fill="#5DCAA5" opacity="0.25"/>
-  <circle class="p5"  cx="30"  cy="300" r="1"   fill="#1D9E75" opacity="0.5"/>
-  <circle class="p6"  cx="870" cy="380" r="1.5" fill="#7F77DD" opacity="0.3"/>
-  <circle class="p7"  cx="160" cy="440" r="1"   fill="#1D9E75" opacity="0.4"/>
-  <circle class="p8"  cx="750" cy="460" r="2"   fill="#5DCAA5" opacity="0.2"/>
-  <circle class="p9"  cx="400" cy="20"  r="1"   fill="#1D9E75" opacity="0.45"/>
-  <circle class="p10" cx="680" cy="480" r="1.5" fill="#7F77DD" opacity="0.3"/>
+  <!-- ── FLOATING PARTICLES ── -->
+  <circle class="pa" cx="55"  cy="90"  r="1.5" fill="#3EBCB3" opacity=".5"/>
+  <circle class="pb" cx="110" cy="200" r="1"   fill="#E9468B" opacity=".4"/>
+  <circle class="pc" cx="820" cy="70"  r="2"   fill="#3EBCB3" opacity=".4"/>
+  <circle class="pd" cx="855" cy="250" r="1.5" fill="#4BA3D8" opacity=".35"/>
+  <circle class="pe" cx="30"  cy="380" r="1"   fill="#3EBCB3" opacity=".5"/>
+  <circle class="pf" cx="875" cy="430" r="1.5" fill="#E9468B" opacity=".4"/>
+  <circle class="pg" cx="190" cy="560" r="1"   fill="#3EBCB3" opacity=".4"/>
+  <circle class="ph" cx="700" cy="548" r="2"   fill="#4BA3D8" opacity=".28"/>
 
-  <!-- ====== LEFT PANEL ====== -->
-  <!-- Panel bg -->
-  <rect x="0" y="0" width="430" height="500" fill="#0a1510" opacity="0.6"/>
+  <!-- ── NODE NETWORK ART (top-right) ── -->
+  <g opacity=".62">
+    <circle cx="720" cy="130" r="44" fill="url(#glowT)" filter="url(#blur8)"/>
+    <circle cx="822" cy="202" r="32" fill="url(#glowP)" filter="url(#blur8)"/>
+    <circle cx="648" cy="212" r="28" fill="url(#glowT)" filter="url(#blur8)"/>
 
-  <!-- Top bar -->
-  <rect x="0" y="0" width="430" height="36" fill="#0d1c15"/>
-  <circle cx="20" cy="18" r="5" fill="#ff5f57"/>
-  <circle cx="36" cy="18" r="5" fill="#febc2e"/>
-  <circle cx="52" cy="18" r="5" fill="#1D9E75"/>
-  <text x="180" y="22" font-size="10" fill="#1D9E7560" font-family="JetBrains Mono" text-anchor="middle">elasticsearch://vignesh-a · profile</text>
+    <line x1="720" y1="130" x2="822" y2="202" stroke="#3EBCB3" stroke-width="1"   class="ef"/>
+    <line x1="720" y1="130" x2="648" y2="212" stroke="#3EBCB3" stroke-width="1"   class="ef2"/>
+    <line x1="822" y1="202" x2="648" y2="212" stroke="#E9468B" stroke-width="1"   class="ef3"/>
+    <line x1="720" y1="130" x2="776" y2="64"  stroke="#3EBCB3" stroke-width=".8"  class="ef"/>
+    <line x1="822" y1="202" x2="872" y2="146" stroke="#E9468B" stroke-width=".8"  class="ef2"/>
+    <line x1="648" y1="212" x2="590" y2="156" stroke="#3EBCB3" stroke-width=".8"  class="ef3"/>
+    <line x1="648" y1="212" x2="616" y2="292" stroke="#4BA3D8" stroke-width=".7"  class="ef"/>
+    <line x1="822" y1="202" x2="858" y2="302" stroke="#E9468B" stroke-width=".7"  class="ef2"/>
 
-  <!-- Status dot with ping -->
-  <circle cx="38" cy="68" r="4" fill="#1D9E75" filter="url(#glow)"/>
-  <circle class="ping-ring" cx="38" cy="68" r="4" fill="none" stroke="#1D9E75" stroke-width="1.5"/>
-  <text x="50" y="72" class="role">CLUSTER: GREEN · OPEN TO CONTRIBUTIONS</text>
+    <line x1="720" y1="130" x2="822" y2="202" stroke="#3EBCB3" stroke-width=".8" class="ed"/>
+    <line x1="822" y1="202" x2="648" y2="212" stroke="#E9468B" stroke-width=".8" class="ed" style="animation-delay:-1.5s"/>
 
-  <!-- Name block -->
-  <g class="name-group">
-    <text x="28" y="115" class="name">Vignesh </text>
-    <text x="185" y="115" class="name-accent">A</text>
-    <rect x="198" y="93" width="3" height="24" fill="#1D9E75" class="cursor"/>
+    <circle cx="720" cy="130" r="5" fill="#3EBCB3" class="np"  filter="url(#blur2)"/>
+    <circle cx="720" cy="130" r="5" fill="#3EBCB3" class="np"/>
+    <circle cx="822" cy="202" r="5" fill="#E9468B" class="np2" filter="url(#blur2)"/>
+    <circle cx="822" cy="202" r="5" fill="#E9468B" class="np2"/>
+    <circle cx="648" cy="212" r="5" fill="#3EBCB3" class="np3" filter="url(#blur2)"/>
+    <circle cx="648" cy="212" r="5" fill="#3EBCB3" class="np3"/>
+
+    <circle cx="776" cy="64"  r="3"   fill="#4BA3D8" opacity=".8"/>
+    <circle cx="872" cy="146" r="3"   fill="#E9468B" opacity=".75"/>
+    <circle cx="590" cy="156" r="3"   fill="#3EBCB3" opacity=".8"/>
+    <circle cx="616" cy="292" r="2.5" fill="#3EBCB3" opacity=".6"/>
+    <circle cx="858" cy="302" r="2.5" fill="#E9468B" opacity=".6"/>
+
+    <g class="orb"><circle cx="756" cy="130" r="2"   fill="#3EBCB3" opacity=".9"/></g>
+    <g class="orb2"><circle cx="720" cy="94" r="1.5" fill="#E9468B" opacity=".85"/></g>
   </g>
 
-  <!-- Role + location -->
-  <g class="s1">
-    <text x="28" y="136" font-size="11" fill="#5DCAA5" font-family="JetBrains Mono" letter-spacing="1">Engineer @ SquareShift  ·  Chennai, IN</text>
-    <text x="28" y="152" font-size="10" fill="#1D9E7550" font-family="JetBrains Mono">he/him  ·  @vigneshio  ·  Kalasalingam University</text>
+  <!-- ── TOP BAR ── -->
+  <rect x="0" y="0" width="900" height="40" fill="#0c1018" opacity=".96"/>
+  <circle cx="22" cy="20" r="5.5" fill="#ff5f57"/>
+  <circle cx="40" cy="20" r="5.5" fill="#febc2e"/>
+  <circle cx="58" cy="20" r="5.5" fill="#3EBCB3"/>
+  <text x="450" y="24" font-size="10" fill="#3EBCB338" text-anchor="middle"
+        font-family="JetBrains Mono,monospace">elasticsearch://vignesh-a · /_search · cluster: green</text>
+
+  <!-- ══════════ LEFT COLUMN ══════════ -->
+
+  <!-- Status ping -->
+  <circle cx="32" cy="68" r="4" fill="#3EBCB3" filter="url(#blur2)"/>
+  <circle cx="32" cy="68" r="4" fill="#3EBCB3"/>
+  <circle cx="32" cy="68" r="4" fill="none" stroke="#3EBCB3" stroke-width="1.2" class="ping"/>
+  <text x="44" y="72" font-size="9" fill="#3EBCB3" letter-spacing="2"
+        font-family="JetBrains Mono,monospace">CLUSTER: GREEN · OPEN TO CONTRIBUTIONS</text>
+
+  <!-- Name -->
+  <g class="nslide">
+    <text x="26" y="126" font-size="46" font-weight="700" fill="#F1F4FA"
+          letter-spacing="-2" font-family="JetBrains Mono,monospace">Vignesh</text>
+    <text x="272" y="126" font-size="46" font-weight="700" fill="#E9468B"
+          letter-spacing="-2" font-family="JetBrains Mono,monospace"> A</text>
+    <rect x="310" y="94" width="3" height="34" fill="#E9468B" class="cur"/>
   </g>
 
-  <!-- Divider -->
-  <line x1="28" y1="165" x2="405" y2="165" stroke="#1D9E7525" stroke-width="0.5"/>
-
-  <!-- Query block -->
-  <g class="s2">
-    <rect x="28" y="172" width="394" height="90" rx="6" fill="#060d0b" stroke="#1D9E7520" stroke-width="0.5"/>
-    <text x="42" y="189" class="kw">GET</text>
-    <text x="66" y="189" class="str">/engineers/_doc/vignesh-a</text>
-    <text x="42" y="205" class="dim">// bio · analyzed · highlighted</text>
-    <text x="42" y="221" class="q1" font-size="10" fill="#9FE1CB" font-family="JetBrains Mono">Building search &amp; data infrastructure.</text>
-    <text x="42" y="235" class="q2" font-size="10" fill="#5DCAA5" font-family="JetBrains Mono">Debugging production clusters at 2 AM.</text>
-    <text x="42" y="249" class="q3" font-size="10" fill="#5DCAA5" font-family="JetBrains Mono">4x Elastic certified. Open source contributor.</text>
+  <!-- Role lines -->
+  <g class="f1">
+    <text x="28" y="148" font-size="11" fill="#3EBCB3" letter-spacing="1.5"
+          font-family="JetBrains Mono,monospace">Engineer @ SquareShift · Chennai, IN · he/him</text>
+  </g>
+  <g class="f2">
+    <text x="28" y="164" font-size="10" fill="#3EBCB342" letter-spacing=".5"
+          font-family="JetBrains Mono,monospace">@vigneshio · Kalasalingam University · 500+ connections</text>
   </g>
 
-  <!-- Stats row -->
-  <g class="s3">
-    <!-- Score card -->
-    <rect x="28"  y="272" width="88" height="56" rx="6" fill="#060d0b" stroke="#1D9E7530" stroke-width="0.5"/>
-    <text x="72"  y="290" class="label" text-anchor="middle">_SCORE</text>
-    <text x="72"  y="312" class="val score-num" text-anchor="middle">99.99</text>
+  <line x1="28" y1="176" x2="442" y2="176" stroke="#3EBCB318" stroke-width=".5"/>
 
-    <!-- Certs card -->
-    <rect x="124" y="272" width="88" height="56" rx="6" fill="#060d0b" stroke="#7F77DD30" stroke-width="0.5"/>
-    <text x="168" y="290" class="label" text-anchor="middle">CERTS</text>
-    <text x="168" y="312" class="val" text-anchor="middle" fill="#AFA9EC">9</text>
+  <!-- Bio query block -->
+  <g class="f3">
+    <rect x="28" y="183" width="420" height="86" rx="7"
+          fill="#080b12" stroke="#3EBCB318" stroke-width=".5"/>
+    <text x="44" y="200" font-size="10" fill="#E9468B"
+          font-family="JetBrains Mono,monospace">GET</text>
+    <text x="68" y="200" font-size="10" fill="#3EBCB3"
+          font-family="JetBrains Mono,monospace">/engineers/_doc/vignesh-a</text>
+    <text x="44" y="216" font-size="9" fill="#4BA3D840"
+          font-family="JetBrains Mono,monospace">// bio · analyzed · highlighted</text>
+    <text x="44" y="232" font-size="10" fill="#F1F4FA" class="tw1"
+          font-family="JetBrains Mono,monospace">Building search &amp; data infrastructure.</text>
+    <text x="44" y="248" font-size="10" fill="#3EBCB3" class="tw2"
+          font-family="JetBrains Mono,monospace">Debugging production clusters at 2 AM.</text>
+    <text x="44" y="264" font-size="10" fill="#3EBCB3" class="tw3"
+          font-family="JetBrains Mono,monospace">4x Elastic certified. Open source contributor.</text>
+  </g>
 
-    <!-- Took card -->
-    <rect x="220" y="272" width="88" height="56" rx="6" fill="#060d0b" stroke="#1D9E7530" stroke-width="0.5"/>
-    <text x="264" y="290" class="label" text-anchor="middle">TOOK</text>
-    <text x="264" y="312" class="val" text-anchor="middle">27<tspan font-size="9" fill="#1D9E7580">ms</tspan></text>
+  <!-- Stat cards -->
+  <g class="f4">
+    <rect x="28"  y="280" width="92"  height="58" rx="6" fill="#080b12" stroke="#3EBCB322" stroke-width=".5"/>
+    <text x="74"  y="298" font-size="9"  fill="#3EBCB342" text-anchor="middle" letter-spacing="1"
+          font-family="JetBrains Mono,monospace">_SCORE</text>
+    <text x="74"  y="326" font-size="18" font-weight="700" fill="#3EBCB3" text-anchor="middle"
+          class="sg" font-family="JetBrains Mono,monospace">99.99</text>
 
-    <!-- Connections card -->
-    <rect x="316" y="272" width="106" height="56" rx="6" fill="#060d0b" stroke="#1D9E7530" stroke-width="0.5"/>
-    <text x="369" y="290" class="label" text-anchor="middle">CONNECTIONS</text>
-    <text x="369" y="312" class="val" text-anchor="middle">500<tspan fill="#1D9E7560">+</tspan></text>
+    <rect x="128" y="280" width="92"  height="58" rx="6" fill="#080b12" stroke="#E9468B22" stroke-width=".5"/>
+    <text x="174" y="298" font-size="9"  fill="#E9468B42" text-anchor="middle" letter-spacing="1"
+          font-family="JetBrains Mono,monospace">CERTS</text>
+    <text x="174" y="326" font-size="18" font-weight="700" fill="#E9468B" text-anchor="middle"
+          font-family="JetBrains Mono,monospace">9</text>
+
+    <rect x="228" y="280" width="92"  height="58" rx="6" fill="#080b12" stroke="#3EBCB322" stroke-width=".5"/>
+    <text x="274" y="298" font-size="9"  fill="#3EBCB342" text-anchor="middle" letter-spacing="1"
+          font-family="JetBrains Mono,monospace">TOOK</text>
+    <text x="274" y="326" font-size="18" font-weight="700" fill="#3EBCB3" text-anchor="middle"
+          font-family="JetBrains Mono,monospace">27<tspan font-size="10" fill="#3EBCB348">ms</tspan></text>
+
+    <rect x="328" y="280" width="120" height="58" rx="6" fill="#080b12" stroke="#3EBCB322" stroke-width=".5"/>
+    <text x="388" y="298" font-size="9"  fill="#3EBCB342" text-anchor="middle" letter-spacing="1"
+          font-family="JetBrains Mono,monospace">CONNECTIONS</text>
+    <text x="388" y="326" font-size="18" font-weight="700" fill="#3EBCB3" text-anchor="middle"
+          font-family="JetBrains Mono,monospace">500<tspan fill="#3EBCB345">+</tspan></text>
   </g>
 
   <!-- Warrior award -->
-  <g class="s4">
-    <rect x="28" y="338" width="394" height="38" rx="6" fill="#1a1100" stroke="#EF9F2740" stroke-width="0.5" class="warrior-bg"/>
-    <text x="44" y="353" font-size="10" fill="#FAC775" font-family="JetBrains Mono">⚡ Warrior Award · SquareShift · 2025</text>
-    <text x="44" y="368" font-size="9"  fill="#BA751780" font-family="JetBrains Mono">"Did not quit when deadlines got tight"</text>
+  <g class="f5">
+    <rect x="28" y="348" width="420" height="40" rx="6"
+          fill="#14080a" stroke="#E9468B28" stroke-width=".5" class="wsh"/>
+    <text x="46" y="364" font-size="10" font-weight="500" fill="#E9468B"
+          font-family="JetBrains Mono,monospace">⚡  Warrior Award · SquareShift · 2025</text>
+    <text x="46" y="381" font-size="9" fill="#E9468B52"
+          font-family="JetBrains Mono,monospace">"Did not quit when deadlines got tight"</text>
   </g>
 
-  <!-- Links -->
-  <g class="s5">
-    <text x="28" y="396" class="label">_LINKS</text>
+  <!-- ── TECH STACK — properly ordered by dependency chain ── -->
+  <g class="f6">
+    <text x="28" y="402" font-size="9" fill="#3EBCB338" letter-spacing="1.5"
+          font-family="JetBrains Mono,monospace">TECH STACK ─────────────────────────────</text>
 
-    <rect x="28"  y="402" width="72" height="22" rx="4" stroke="#1D9E7550" stroke-width="0.5" fill="#060d0b" class="link-rect"/>
-    <text x="64"  y="417" font-size="9" fill="#5DCAA5" font-family="JetBrains Mono" text-anchor="middle">github</text>
+    <!-- layer: languages (foundation of everything) -->
+    <text x="28" y="418" font-size="9" fill="#4BA3D848"
+          font-family="JetBrains Mono,monospace">// languages — the foundation</text>
 
-    <rect x="108" y="402" width="72" height="22" rx="4" stroke="#1D9E7550" stroke-width="0.5" fill="#060d0b" class="link-rect"/>
-    <text x="144" y="417" font-size="9" fill="#5DCAA5" font-family="JetBrains Mono" text-anchor="middle">linkedin</text>
+    <text x="28" y="434" font-size="10" fill="#F1F4FA"
+          font-family="JetBrains Mono,monospace">java</text>
+    <rect x="120" y="427" width="132" height="5" rx="2" fill="#0c1828"/>
+    <rect x="120" y="427" width="128" height="5" rx="2" fill="#3EBCB3" class="b1"/>
+    <text x="256" y="434" font-size="9" fill="#E9468B65"
+          font-family="JetBrains Mono,monospace"> core</text>
 
-    <rect x="188" y="402" width="72" height="22" rx="4" stroke="#1D9E7550" stroke-width="0.5" fill="#060d0b" class="link-rect"/>
-    <text x="224" y="417" font-size="9" fill="#5DCAA5" font-family="JetBrains Mono" text-anchor="middle">twitter/x</text>
+    <text x="28" y="450" font-size="10" fill="#F1F4FA"
+          font-family="JetBrains Mono,monospace">python</text>
+    <rect x="120" y="443" width="132" height="5" rx="2" fill="#0c1828"/>
+    <rect x="120" y="443" width="110" height="5" rx="2" fill="#3EBCB3" class="b2"/>
 
-    <rect x="268" y="402" width="72" height="22" rx="4" stroke="#1D9E7550" stroke-width="0.5" fill="#060d0b" class="link-rect"/>
-    <text x="304" y="417" font-size="9" fill="#5DCAA5" font-family="JetBrains Mono" text-anchor="middle">email</text>
+    <!-- layer: search (java → lucene → elasticsearch) -->
+    <text x="28" y="464" font-size="9" fill="#4BA3D848"
+          font-family="JetBrains Mono,monospace">// search   java → lucene → elasticsearch</text>
+
+    <text x="28" y="480" font-size="10" fill="#F1F4FA"
+          font-family="JetBrains Mono,monospace">apache-lucene</text>
+    <rect x="120" y="473" width="132" height="5" rx="2" fill="#0c1828"/>
+    <rect x="120" y="473" width="120" height="5" rx="2" fill="#E9468B" class="b3"/>
+
+    <text x="28" y="496" font-size="10" fill="#F1F4FA"
+          font-family="JetBrains Mono,monospace">elasticsearch</text>
+    <rect x="120" y="489" width="132" height="5" rx="2" fill="#0c1828"/>
+    <rect x="120" y="489" width="124" height="5" rx="2" fill="#E9468B" class="b4"/>
+    <text x="248" y="496" font-size="9" fill="#E9468B65"
+          font-family="JetBrains Mono,monospace"> core</text>
+
+    <!-- layer: data pipeline -->
+    <text x="28" y="510" font-size="9" fill="#4BA3D848"
+          font-family="JetBrains Mono,monospace">// data pipeline &amp; infra</text>
+
+    <text x="28" y="526" font-size="10" fill="#F1F4FA"
+          font-family="JetBrains Mono,monospace">kafka</text>
+    <rect x="120" y="519" width="132" height="5" rx="2" fill="#0c1828"/>
+    <rect x="120" y="519" width="96"  height="5" rx="2" fill="#4BA3D8" class="b5"/>
+
+    <text x="28" y="542" font-size="10" fill="#F1F4FA"
+          font-family="JetBrains Mono,monospace">kubernetes</text>
+    <rect x="120" y="535" width="132" height="5" rx="2" fill="#0c1828"/>
+    <rect x="120" y="535" width="88"  height="5" rx="2" fill="#4BA3D8" class="b6"/>
   </g>
 
-  <!-- Bottom stack tags -->
-  <g class="s6">
-    <text x="28"  y="442" class="tag">elasticsearch</text>
-    <text x="112" y="442" class="tag">lucene</text>
-    <text x="158" y="442" class="tag">kafka</text>
-    <text x="202" y="442" class="tag">kubernetes</text>
-    <text x="268" y="442" class="tag">java</text>
-    <text x="302" y="442" class="tag">python</text>
-    <text x="348" y="442" class="tag">spark</text>
-    <text x="390" y="442" class="tag">gcp</text>
-    <text x="28"  y="458" class="tag">prometheus</text>
-    <text x="110" y="458" class="tag">grafana</text>
-    <text x="162" y="458" class="tag">airflow</text>
-    <text x="212" y="458" class="tag">docker</text>
-    <text x="258" y="458" class="tag">linux</text>
-    <text x="298" y="458" class="tag">sql</text>
-    <text x="326" y="458" class="tag">aws</text>
+  <!-- ── LINKS — clickable via SVG <a href> ── -->
+  <g class="f7">
+    <a href="https://github.com/vigneshio" target="_blank">
+      <rect x="28"  y="556" width="82" height="22" rx="4"
+            fill="#080b12" stroke="#3EBCB3" stroke-width=".6" class="lb1"/>
+      <text x="69"  y="571" font-size="9" fill="#3EBCB3" text-anchor="middle"
+            font-family="JetBrains Mono,monospace">github</text>
+    </a>
+    <a href="https://www.linkedin.com/in/avignesh27/" target="_blank">
+      <rect x="118" y="556" width="82" height="22" rx="4"
+            fill="#080b12" stroke="#E9468B" stroke-width=".6" class="lb2"/>
+      <text x="159" y="571" font-size="9" fill="#E9468B" text-anchor="middle"
+            font-family="JetBrains Mono,monospace">linkedin</text>
+    </a>
+    <a href="https://x.com/im_viGnesh27" target="_blank">
+      <rect x="208" y="556" width="82" height="22" rx="4"
+            fill="#080b12" stroke="#3EBCB3" stroke-width=".6" class="lb3"/>
+      <text x="249" y="571" font-size="9" fill="#3EBCB3" text-anchor="middle"
+            font-family="JetBrains Mono,monospace">twitter/x</text>
+    </a>
+    <a href="mailto:imavignesh27@gmail.com">
+      <rect x="298" y="556" width="82" height="22" rx="4"
+            fill="#080b12" stroke="#E9468B" stroke-width=".6" class="lb4"/>
+      <text x="339" y="571" font-size="9" fill="#E9468B" text-anchor="middle"
+            font-family="JetBrains Mono,monospace">email</text>
+    </a>
   </g>
 
-  <!-- Footer -->
-  <text x="28" y="486" class="dim">© vignesh a · search engineer · 2025</text>
-
-  <!-- ====== RIGHT PANEL ====== -->
-  <rect x="450" y="0" width="450" height="500" fill="#060d0b" opacity="0.4"/>
-
-  <!-- Right top bar -->
-  <rect x="450" y="0" width="450" height="36" fill="#0d1c15" opacity="0.8"/>
-  <text x="675" y="22" font-size="10" fill="#1D9E7640" font-family="JetBrains Mono" text-anchor="middle">aggs · certifications · tech_stack · contributions</text>
-
-  <!-- CERTIFICATIONS section -->
-  <g class="s2">
-    <text x="470" y="56" class="label">GET /_cat/certifications?v</text>
-
-    <!-- Elastic certs -->
-    <circle cx="476" cy="72" r="3" fill="#1D9E75" class="cd1"/>
-    <text x="486" y="76" class="cert-name">Elastic Certified Engineer</text>
-    <circle cx="476" cy="87" r="3" fill="#1D9E75" class="cd2"/>
-    <text x="486" y="91" class="cert-name">Elastic Certified Observability Engineer</text>
-    <circle cx="476" cy="102" r="3" fill="#1D9E75" class="cd3"/>
-    <text x="486" y="106" class="cert-name">Elastic Certified SIEM Analyst</text>
-    <circle cx="476" cy="117" r="3" fill="#1D9E75" class="cd4"/>
-    <text x="486" y="121" class="cert-name">Elastic GenAI Associate</text>
-
-    <!-- GCP certs -->
-    <circle cx="476" cy="132" r="3" fill="#4285F4" class="cd5"/>
-    <text x="486" y="136" class="cert-name">GCP Professional Cloud Architect</text>
-    <circle cx="476" cy="147" r="3" fill="#4285F4" class="cd6"/>
-    <text x="486" y="151" class="cert-name">GCP Professional ML Engineer</text>
-    <circle cx="476" cy="162" r="3" fill="#4285F4" class="cd7"/>
-    <text x="486" y="166" class="cert-name">GCP Professional Data Engineer</text>
-
-    <!-- Other -->
-    <circle cx="476" cy="177" r="3" fill="#F80000" class="cd8"/>
-    <text x="486" y="181" class="cert-name">Oracle AI Vector Search Professional</text>
-    <circle cx="476" cy="192" r="3" fill="#FF9900" class="cd9"/>
-    <text x="486" y="196" class="cert-name">AWS Certified Cloud Practitioner</text>
+  <!-- Tags + footer -->
+  <g class="f8">
+    <text x="28" y="592" font-size="8.5" fill="#3EBCB322"
+          font-family="JetBrains Mono,monospace">spark · airflow · docker · prometheus · grafana · linux · sql · gcp · aws</text>
   </g>
 
-  <!-- Divider -->
-  <line x1="466" y1="208" x2="886" y2="208" stroke="#1D9E7520" stroke-width="0.5"/>
+  <!-- Vertical divider -->
+  <line x1="460" y1="48" x2="460" y2="572"
+        stroke="#3EBCB314" stroke-width=".5" stroke-dasharray="4 8"/>
 
-  <!-- TECH STACK BARS -->
-  <g class="s4">
-    <text x="470" y="224" class="label">GET /_cat/tech_stack  ·  aggs · bar</text>
+  <!-- ══════════ RIGHT COLUMN ══════════ -->
 
-    <!-- bars -->
-    <text x="470" y="242" class="val-s">elasticsearch</text>
-    <rect x="570" y="232" width="114" height="5" rx="2" fill="#0e1d17"/>
-    <rect x="570" y="232" width="108" height="5" rx="2" fill="#1D9E75" class="bar1"/>
-    <text x="684" y="239" class="dim">core</text>
+  <!-- CERTIFICATIONS -->
+  <g class="f3">
+    <text x="480" y="62" font-size="9" fill="#3EBCB338" letter-spacing="1.5"
+          font-family="JetBrains Mono,monospace">GET /_cat/certifications?v</text>
 
-    <text x="470" y="256" class="val-s">apache-lucene</text>
-    <rect x="570" y="246" width="114" height="5" rx="2" fill="#0e1d17"/>
-    <rect x="570" y="246" width="96"  height="5" rx="2" fill="#1D9E75" class="bar2"/>
+    <text x="480" y="78" font-size="9" fill="#4BA3D848"
+          font-family="JetBrains Mono,monospace">// elastic</text>
+    <circle cx="486" cy="92"  r="3" fill="#3EBCB3" class="cd1"/>
+    <text    x="496" y="96"  font-size="10" fill="#F1F4FA"
+          font-family="JetBrains Mono,monospace">Elastic Certified Engineer</text>
+    <circle cx="486" cy="108" r="3" fill="#3EBCB3" class="cd2"/>
+    <text    x="496" y="112" font-size="10" fill="#F1F4FA"
+          font-family="JetBrains Mono,monospace">Elastic Certified Observability Eng.</text>
+    <circle cx="486" cy="124" r="3" fill="#3EBCB3" class="cd3"/>
+    <text    x="496" y="128" font-size="10" fill="#F1F4FA"
+          font-family="JetBrains Mono,monospace">Elastic Certified SIEM Analyst</text>
+    <circle cx="486" cy="140" r="3" fill="#3EBCB3" class="cd4"/>
+    <text    x="496" y="144" font-size="10" fill="#F1F4FA"
+          font-family="JetBrains Mono,monospace">Elastic GenAI Associate</text>
 
-    <text x="470" y="270" class="val-s">kafka</text>
-    <rect x="570" y="260" width="114" height="5" rx="2" fill="#0e1d17"/>
-    <rect x="570" y="260" width="84"  height="5" rx="2" fill="#7F77DD" class="bar3"/>
+    <text x="480" y="160" font-size="9" fill="#4BA3D848"
+          font-family="JetBrains Mono,monospace">// google cloud</text>
+    <circle cx="486" cy="174" r="3" fill="#4285F4" class="cd5"/>
+    <text    x="496" y="178" font-size="10" fill="#F1F4FA"
+          font-family="JetBrains Mono,monospace">Professional Cloud Architect</text>
+    <circle cx="486" cy="190" r="3" fill="#4285F4" class="cd6"/>
+    <text    x="496" y="194" font-size="10" fill="#F1F4FA"
+          font-family="JetBrains Mono,monospace">Professional ML Engineer</text>
+    <circle cx="486" cy="206" r="3" fill="#4285F4" class="cd7"/>
+    <text    x="496" y="210" font-size="10" fill="#F1F4FA"
+          font-family="JetBrains Mono,monospace">Professional Data Engineer</text>
 
-    <text x="470" y="284" class="val-s">kubernetes</text>
-    <rect x="570" y="274" width="114" height="5" rx="2" fill="#0e1d17"/>
-    <rect x="570" y="274" width="78"  height="5" rx="2" fill="#7F77DD" class="bar4"/>
-
-    <text x="470" y="298" class="val-s">python</text>
-    <rect x="570" y="288" width="114" height="5" rx="2" fill="#0e1d17"/>
-    <rect x="570" y="288" width="90"  height="5" rx="2" fill="#5DCAA5" class="bar5"/>
+    <text x="480" y="226" font-size="9" fill="#4BA3D848"
+          font-family="JetBrains Mono,monospace">// oracle · aws</text>
+    <circle cx="486" cy="240" r="3" fill="#F80000" class="cd8"/>
+    <text    x="496" y="244" font-size="10" fill="#F1F4FA"
+          font-family="JetBrains Mono,monospace">Oracle AI Vector Search Professional</text>
+    <circle cx="486" cy="256" r="3" fill="#FF9900" class="cd9"/>
+    <text    x="496" y="260" font-size="10" fill="#F1F4FA"
+          font-family="JetBrains Mono,monospace">AWS Certified Cloud Practitioner</text>
   </g>
 
-  <!-- Divider -->
-  <line x1="466" y1="312" x2="886" y2="312" stroke="#1D9E7520" stroke-width="0.5"/>
+  <line x1="476" y1="274" x2="882" y2="274" stroke="#3EBCB314" stroke-width=".5"/>
 
   <!-- CONTRIBUTIONS -->
-  <g class="s5">
-    <text x="470" y="328" class="label">GET /contributions/_search</text>
+  <g class="f5">
+    <text x="480" y="290" font-size="9" fill="#3EBCB338" letter-spacing="1.5"
+          font-family="JetBrains Mono,monospace">GET /contributions/_search</text>
 
-    <!-- apache/lucene -->
-    <rect x="466" y="334" width="410" height="34" rx="5" fill="#060d0b" stroke="#1D9E7525" stroke-width="0.5" class="r1"/>
-    <text x="480" y="349" font-size="10" fill="#1D9E7580" font-family="JetBrains Mono">apache</text>
-    <text x="520" y="349" font-size="10" fill="#1D9E7530" font-family="JetBrains Mono">/</text>
-    <text x="528" y="349" font-size="10" fill="#9FE1CB" font-family="JetBrains Mono">lucene</text>
-    <rect x="760" y="338" width="48" height="14" rx="3" fill="#0a2318"/>
-    <text x="784" y="349" font-size="9" fill="#1D9E75" font-family="JetBrains Mono" text-anchor="middle">active</text>
-    <text x="480" y="361" font-size="9" fill="#1D9E7540" font-family="JetBrains Mono">focus: search-engineering</text>
+    <rect x="476" y="298" width="400" height="44" rx="6"
+          fill="#080b12" stroke="#3EBCB318" stroke-width=".5" class="r1"/>
+    <text x="492" y="315" font-size="10" fill="#3EBCB352"
+          font-family="JetBrains Mono,monospace">apache</text>
+    <text x="537" y="315" font-size="10" fill="#3EBCB328"
+          font-family="JetBrains Mono,monospace">/</text>
+    <text x="544" y="315" font-size="10" fill="#F1F4FA" font-weight="500"
+          font-family="JetBrains Mono,monospace">lucene</text>
+    <rect x="770" y="302" width="50" height="14" rx="3" fill="#0d2018"/>
+    <text x="795" y="313" font-size="9" fill="#3EBCB3" text-anchor="middle"
+          font-family="JetBrains Mono,monospace">active</text>
+    <text x="492" y="333" font-size="9" fill="#3EBCB32e"
+          font-family="JetBrains Mono,monospace">focus: search-engineering</text>
 
-    <!-- elastic/elasticsearch -->
-    <rect x="466" y="374" width="410" height="34" rx="5" fill="#060d0b" stroke="#1D9E7525" stroke-width="0.5" class="r2"/>
-    <text x="480" y="389" font-size="10" fill="#1D9E7580" font-family="JetBrains Mono">elastic</text>
-    <text x="524" y="389" font-size="10" fill="#1D9E7530" font-family="JetBrains Mono">/</text>
-    <text x="532" y="389" font-size="10" fill="#9FE1CB" font-family="JetBrains Mono">elasticsearch</text>
-    <rect x="760" y="378" width="48" height="14" rx="3" fill="#0a2318"/>
-    <text x="784" y="389" font-size="9" fill="#1D9E75" font-family="JetBrains Mono" text-anchor="middle">active</text>
-    <text x="480" y="401" font-size="9" fill="#1D9E7540" font-family="JetBrains Mono">focus: distributed-search</text>
+    <rect x="476" y="350" width="400" height="44" rx="6"
+          fill="#080b12" stroke="#3EBCB318" stroke-width=".5" class="r2"/>
+    <text x="492" y="367" font-size="10" fill="#3EBCB352"
+          font-family="JetBrains Mono,monospace">elastic</text>
+    <text x="537" y="367" font-size="10" fill="#3EBCB328"
+          font-family="JetBrains Mono,monospace">/</text>
+    <text x="544" y="367" font-size="10" fill="#F1F4FA" font-weight="500"
+          font-family="JetBrains Mono,monospace">elasticsearch</text>
+    <rect x="770" y="354" width="50" height="14" rx="3" fill="#0d2018"/>
+    <text x="795" y="365" font-size="9" fill="#3EBCB3" text-anchor="middle"
+          font-family="JetBrains Mono,monospace">active</text>
+    <text x="492" y="385" font-size="9" fill="#3EBCB32e"
+          font-family="JetBrains Mono,monospace">focus: distributed-search</text>
 
-    <!-- apache/polaris -->
-    <rect x="466" y="414" width="410" height="34" rx="5" fill="#060d0b" stroke="#EF9F2720" stroke-width="0.5" class="r3"/>
-    <text x="480" y="429" font-size="10" fill="#1D9E7580" font-family="JetBrains Mono">apache</text>
-    <text x="520" y="429" font-size="10" fill="#1D9E7530" font-family="JetBrains Mono">/</text>
-    <text x="528" y="429" font-size="10" fill="#FAC77580" font-family="JetBrains Mono">polaris</text>
-    <rect x="730" y="418" width="94" height="14" rx="3" fill="#1a1100"/>
-    <text x="777" y="429" font-size="9" fill="#EF9F27" font-family="JetBrains Mono" text-anchor="middle">pending merge</text>
-    <text x="480" y="441" font-size="9" fill="#1D9E7540" font-family="JetBrains Mono">focus: catalog-federation</text>
+    <rect x="476" y="402" width="400" height="44" rx="6"
+          fill="#080b12" stroke="#E9468B18" stroke-width=".5" class="r3"/>
+    <text x="492" y="419" font-size="10" fill="#3EBCB352"
+          font-family="JetBrains Mono,monospace">apache</text>
+    <text x="537" y="419" font-size="10" fill="#3EBCB328"
+          font-family="JetBrains Mono,monospace">/</text>
+    <text x="544" y="419" font-size="10" fill="#E9468B" font-weight="500"
+          font-family="JetBrains Mono,monospace">polaris</text>
+    <rect x="742" y="406" width="98" height="14" rx="3" fill="#1c0610"/>
+    <text x="791" y="417" font-size="9" fill="#E9468B" text-anchor="middle"
+          font-family="JetBrains Mono,monospace">pending merge</text>
+    <text x="492" y="437" font-size="9" fill="#3EBCB32e"
+          font-family="JetBrains Mono,monospace">focus: catalog-federation</text>
   </g>
 
-  <!-- Bottom stats right -->
-  <g class="s7">
-    <text x="470" y="470" class="dim">shards: 3/3 successful · timed_out: false · took: 27ms</text>
-    <text x="470" y="486" class="dim">last indexed: 2025 · cluster: vignesh-a · health: green</text>
+  <line x1="476" y1="456" x2="882" y2="456" stroke="#3EBCB314" stroke-width=".5"/>
+
+  <!-- Meta + pills -->
+  <g class="f8">
+    <text x="480" y="472" font-size="9" fill="#3EBCB328"
+          font-family="JetBrains Mono,monospace">shards: 3/3 · timed_out: false · took: 27ms</text>
+
+    <rect x="476" y="482" width="88" height="18" rx="3" fill="#0c2018" stroke="#3EBCB322" stroke-width=".5"/>
+    <text x="520" y="494" font-size="8" fill="#3EBCB3" text-anchor="middle"
+          font-family="JetBrains Mono,monospace">4x elastic</text>
+
+    <rect x="572" y="482" width="68" height="18" rx="3" fill="#0c1430" stroke="#4285F422" stroke-width=".5"/>
+    <text x="606" y="494" font-size="8" fill="#4285F4" text-anchor="middle"
+          font-family="JetBrains Mono,monospace">3x gcp</text>
+
+    <rect x="648" y="482" width="72" height="18" rx="3" fill="#1a0505" stroke="#F8000022" stroke-width=".5"/>
+    <text x="684" y="494" font-size="8" fill="#F80000aa" text-anchor="middle"
+          font-family="JetBrains Mono,monospace">1x oracle</text>
+
+    <rect x="728" y="482" width="68" height="18" rx="3" fill="#120b00" stroke="#FF990022" stroke-width=".5"/>
+    <text x="762" y="494" font-size="8" fill="#FF9900aa" text-anchor="middle"
+          font-family="JetBrains Mono,monospace">1x aws</text>
   </g>
 
-  <!-- Vertical divider between panels -->
-  <line x1="445" y1="0" x2="445" y2="500" stroke="#1D9E7520" stroke-width="0.5" stroke-dasharray="4 6"/>
+  <g class="f9">
+    <a href="mailto:imavignesh27@gmail.com">
+      <text x="480" y="518" font-size="9" fill="#3EBCB328"
+            font-family="JetBrains Mono,monospace">imavignesh27@gmail.com</text>
+    </a>
+    <a href="https://www.linkedin.com/in/avignesh27/" target="_blank">
+      <text x="480" y="532" font-size="9" fill="#3EBCB328"
+            font-family="JetBrains Mono,monospace">linkedin.com/in/avignesh27</text>
+    </a>
+    <a href="https://x.com/im_viGnesh27" target="_blank">
+      <text x="480" y="546" font-size="9" fill="#3EBCB328"
+            font-family="JetBrains Mono,monospace">x.com/im_viGnesh27</text>
+    </a>
+    <text x="480" y="560" font-size="9" fill="#3EBCB320"
+          font-family="JetBrains Mono,monospace">last indexed: 2025 · status: open_to_contributions</text>
+    <text x="480" y="578" font-size="9" fill="#3EBCB318"
+          font-family="JetBrains Mono,monospace">© vignesh a · search engineer · vigneshio</text>
+  </g>
 
-  <!-- Outer border -->
-  <rect x="1" y="1" width="898" height="498" rx="15" stroke="#1D9E7530" stroke-width="1" fill="none"/>
+  <!-- ── OUTER BORDER ── -->
+  <rect x=".5" y=".5" width="899" height="599" rx="17.5"
+        stroke="#3EBCB328" stroke-width="1" fill="none"/>
+  <rect x="2"  y="2"  width="896" height="596" rx="16"
+        stroke="#E9468B10" stroke-width=".5" fill="none"/>
 
 </g>
 </svg>
