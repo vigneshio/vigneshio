@@ -1,12 +1,8 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/vigneshio/vigneshio/main/boot.svg" width="100%" alt="boot sequence">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=1000&color=3FB950&background=0D111700&center=true&vCenter=true&width=800&lines=Engineer+%40+SquareShift;Open+Source+Contributor;Elastic+x4+Certified;Google+x3+Certified;Search+%26+Data+Engineer;Apache+Lucene+%2F+Elasticsearch" alt="typing header">
 </p>
 
 <h2 align="center">Vignesh A</h2>
-
-<p align="center">
-  <em>Engineer at SquareShift · Open Source Contributor · Search & Data</em>
-</p>
 
 <p align="center">
   <a href="https://www.linkedin.com/in/avignesh27/"><img src="https://img.shields.io/badge/LinkedIn-avignesh27-0077B5?style=flat-square&logo=linkedin&logoColor=white"></a>
@@ -61,6 +57,14 @@
 
 ---
 
+### Trophy Case
+
+<p align="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=vigneshio&theme=onedark&no-frame=true&row=1&column=7" alt="trophies">
+</p>
+
+---
+
 ### Open Source
 
 <p align="center">
@@ -72,18 +76,13 @@
 
 ---
 
-### GitHub Stats
+### Activity
 
 <p align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=vigneshio&show_icons=true&theme=dark&count_private=true">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=vigneshio&layout=compact&theme=dark">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=vigneshio&theme=github-compact&hide_border=true" alt="activity graph">
 </p>
 
 ---
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/vigneshio/vigneshio/main/radar.svg" width="100%" alt="radar">
-</p>
 
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=vigneshio&color=blueviolet&style=flat-square">
