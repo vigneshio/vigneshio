@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="350" viewBox="0 0 600 350">
+  <defs>
+    <radialGradient id="radarBg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#010409"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="600" height="350" fill="url(#radarBg)"/>
+  <circle cx="300" cy="175" r="40" fill="none" stroke="#21262d" stroke-width="1"/>
+  <circle cx="300" cy="175" r="80" fill="none" stroke="#21262d" stroke-width="1"/>
+  <circle cx="300" cy="175" r="120" fill="none" stroke="#21262d" stroke-width="1"/>
+  <line x1="300" y1="55" x2="300" y2="295" stroke="#21262d" stroke-width="1"/>
+  <line x1="180" y1="175" x2="420" y2="175" stroke="#21262d" stroke-width="1"/>
+  <line x1="300" y1="175" x2="300" y2="55" stroke="#00BFB3" stroke-width="2" filter="url(#glow)">
+    <animateTransform attributeName="transform" type="rotate" from="0 300 175" to="360 300 175" dur="4s" repeatCount="indefinite"/>
+  </line>
+  <path d="M 300 175 L 300 55 A 120 120 0 0 1 420 175 Z" fill="#00BFB3" opacity="0.08">
+    <animateTransform attributeName="transform" type="rotate" from="0 300 175" to="360 300 175" dur="4s" repeatCount="indefinite"/>
+  </path>
+  <circle cx="300" cy="135" r="4" fill="#00BFB3" filter="url(#glow)">
+    <animate attributeName="r" values="2;6;2" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.8;0.2;0.8" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="300" y="125" text-anchor="middle" fill="#8b949e" font-size="10" font-family="monospace">Java</text>
+  <circle cx="260" cy="175" r="4" fill="#4285F4" filter="url(#glow)">
+    <animate attributeName="r" values="2;6;2" dur="2.5s" repeatCount="indefinite" begin="0.3s"/>
+    <animate attributeName="opacity" values="0.8;0.2;0.8" dur="2.5s" repeatCount="indefinite" begin="0.3s"/>
+  </circle>
+  <text x="250" y="178" text-anchor="end" fill="#8b949e" font-size="10" font-family="monospace">Python</text>
+  <circle cx="340" cy="115" r="5" fill="#005571" filter="url(#glow)">
+    <animate attributeName="r" values="3;7;3" dur="2s" repeatCount="indefinite" begin="0.6s"/>
+    <animate attributeName="opacity" values="0.8;0.2;0.8" dur="2s" repeatCount="indefinite" begin="0.6s"/>
+  </circle>
+  <text x="340" y="105" text-anchor="middle" fill="#8b949e" font-size="10" font-family="monospace">Elasticsearch</text>
+  <circle cx="380" cy="175" r="5" fill="#E6522C" filter="url(#glow)">
+    <animate attributeName="r" values="3;7;3" dur="2.3s" repeatCount="indefinite" begin="0.9s"/>
+    <animate attributeName="opacity" values="0.8;0.2;0.8" dur="2.3s" repeatCount="indefinite" begin="0.9s"/>
+  </circle>
+  <text x="390" y="178" text-anchor="start" fill="#8b949e" font-size="10" font-family="monospace">Kafka</text>
+  <circle cx="300" cy="95" r="6" fill="#a371f7" filter="url(#glow)">
+    <animate attributeName="r" values="4;8;4" dur="2.7s" repeatCount="indefinite" begin="1.2s"/>
+    <animate attributeName="opacity" values="0.8;0.2;0.8" dur="2.7s" repeatCount="indefinite" begin="1.2s"/>
+  </circle>
+  <text x="300" y="88" text-anchor="middle" fill="#8b949e" font-size="10" font-family="monospace">Lucene</text>
+  <circle cx="220" cy="115" r="5" fill="#FF9900" filter="url(#glow)">
+    <animate attributeName="r" values="3;7;3" dur="2.1s" repeatCount="indefinite" begin="1.5s"/>
+    <animate attributeName="opacity" values="0.8;0.2;0.8" dur="2.1s" repeatCount="indefinite" begin="1.5s"/>
+  </circle>
+  <text x="210" y="105" text-anchor="middle" fill="#8b949e" font-size="10" font-family="monospace">AWS</text>
+  <circle cx="180" cy="175" r="5" fill="#326CE5" filter="url(#glow)">
+    <animate attributeName="r" values="3;7;3" dur="2.4s" repeatCount="indefinite" begin="1.8s"/>
+    <animate attributeName="opacity" values="0.8;0.2;0.8" dur="2.4s" repeatCount="indefinite" begin="1.8s"/>
+  </circle>
+  <text x="170" y="178" text-anchor="end" fill="#8b949e" font-size="10" font-family="monospace">K8s</text>
+  <circle cx="260" cy="135" r="5" fill="#E25A1C" filter="url(#glow)">
+    <animate attributeName="r" values="3;7;3" dur="2.6s" repeatCount="indefinite" begin="2.1s"/>
+    <animate attributeName="opacity" values="0.8;0.2;0.8" dur="2.6s" repeatCount="indefinite" begin="2.1s"/>
+  </circle>
+  <text x="250" y="128" text-anchor="end" fill="#8b949e" font-size="10" font-family="monospace">Spark</text>
+</svg>
