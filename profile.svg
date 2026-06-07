@@ -255,7 +255,7 @@
     <text x="44" y="232" font-size="10" fill="#F1F4FA" class="tw1"
           font-family="JetBrains Mono,monospace">Building search &amp; data infrastructure.</text>
     <text x="44" y="248" font-size="10" fill="#3EBCB3" class="tw2"
-          font-family="JetBrains Mono,monospace">Debugging production clusters at 2 AM.</text>
+          font-family="JetBrains Mono,monospace">Debugging production clusters .</text>
     <text x="44" y="264" font-size="10" fill="#3EBCB3" class="tw3"
           font-family="JetBrains Mono,monospace">4x Elastic certified. Open source contributor.</text>
   </g>
