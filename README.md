@@ -1,5 +1,5 @@
 <div align="center">
-<img src="./profile.svg" width="900" alt="Vignesh A — Search Engineer"/>
+<img src="./profile.svg" width="900" alt="Vignesh A — Engineer"/>
 </div>
 
 <br/>
